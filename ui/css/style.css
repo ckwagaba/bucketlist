@@ -52,8 +52,18 @@ input[type="button"]:hover, input[type="submit"]:hover, button:hover {
 }
 
 #sign_up_button_container input[type="submit"]:hover {
-    background: none;
     color: #34567A;
+    background: none;
+}
+
+#sign_in_button_container input[type="submit"] {
+    background: #F95F62;
+    border: 1px solid #F95F62;
+}
+
+#sign_in_button_container input[type="submit"]:hover {
+    color: #F95F62;
+    background: none;
 }
 
 a {
@@ -93,9 +103,16 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #34567A;
     color: #FFF;
     height: 5rem;
+}
+
+#sign_up_header {
+    background: #34567A;
+}
+
+#sign_in_header {
+    background: #F95F62;
 }
 
 #right main {
@@ -106,7 +123,7 @@ a:hover {
     height: calc(100vh - 5rem);
 }
 
-#sign_up_button_container {
+#sign_up_button_container, #sign_in_button_container {
     text-align: center;
 }
 
@@ -115,7 +132,7 @@ a:hover {
     margin: 2rem 0;
 }
 
-#sign_in_option {
+#sign_in_option, #sign_up_option {
     margin: 2rem 0;
 }
 
@@ -125,6 +142,12 @@ a:hover {
     text-decoration: underline;
 }
 
-#sign_in_option a:hover {
+#sign_in_option a:hover, #sign_up_option a:hover {
     text-decoration: none;
+}
+
+#sign_up_option a {
+    color: #34567A;
+    font-weight: bold;
+    text-decoration: underline;
 }
