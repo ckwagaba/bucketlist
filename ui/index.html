@@ -13,7 +13,7 @@
     <body>
         <section id="not_logged_in">
             <section id="hero">
-                <div>BUCKETLIST</div>
+                <div id="hero_title">BUCKETLIST</div>
                 <div>Keep track of your dreams and goals.</div>
             </section>
             <section id="right">
@@ -23,15 +23,15 @@
                 <main>
                     <div id="form">
                         <form action="">
-                            <input type="text" name="user_name" placeholder="Your name" />
-                            <input type="text" name="user_email" placeholder="Email address" />
-                            <input type="text" name="user_password" placeholder="Password" />
-                            <input type="submit" value="Sign up"/>
+                            <div><input type="text" name="user_name" placeholder="Your name" /></div>
+                            <div><input type="text" name="user_email" placeholder="Email address" /></div>
+                            <div><input type="text" name="user_password" placeholder="Password" /></div>
+                            <div id="sign_up_button_container"><input type="submit" value="Sign up"/></div>
                         </form>
                     </div>
                     <div id="option">
                         <div>or</div>
-                        <div id="sign_in_option">Sign in</div>
+                        <div id="sign_in_option"><a href="#">Sign in</a></div>
                     </div>
                 </main>
             </section>

@@ -4,6 +4,66 @@ body {
     background: #FFF;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input{
+	-webkit-appearance:none;
+	font-family:inherit;
+}
+
+input[type="text"], input[type="password"] {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width:20rem;
+	border:1px solid #CCC;
+	background:#FFF;
+	padding:1rem;
+	vertical-align:middle;/*be mindful of object margins when using this rule*/
+	font-size:100%;
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	margin: 0.5rem 0;
+}
+
+input[type="button"], input[type="submit"], button {
+	display: inline-block;
+	text-decoration: none;
+	padding: 1rem 3rem;
+	margin: 1rem 0;
+	vertical-align:middle;
+	color: #FFF;
+	cursor: default;
+	border: 0;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	/**/
+}
+
+#sign_up_button_container input[type="submit"] {
+    background: #34567A;
+    border: 1px solid #34567A;
+}
+
+#sign_up_button_container input[type="submit"]:hover {
+    background: none;
+    color: #34567A;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 #not_logged_in {
     height: 100vh;
     display: flex;
@@ -11,8 +71,60 @@ body {
 
 #hero {
     background: #5A6978;
+    flex:2;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero_title {
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #right {
-    
+    flex:1;
+}
+
+#right header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #34567A;
+    color: #FFF;
+    height: 5rem;
+}
+
+#right main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 5rem);
+}
+
+#sign_up_button_container {
+    text-align: center;
+}
+
+#option {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#sign_in_option {
+    margin: 2rem 0;
+}
+
+#sign_in_option a {
+    color: #F95F62;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#sign_in_option a:hover {
+    text-decoration: none;
 }
