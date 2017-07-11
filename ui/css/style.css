@@ -266,3 +266,58 @@ a:hover {
     background: #F95F62;
     border: 1px solid #AC1B1E;
 }
+
+#goal_list_header {
+    background: #969FAA;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+}
+
+.goal_container {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+}
+
+.goal_container:nth-child(odd) {
+    background: #F4F8FC;
+}
+
+.goal_container:nth-child(even) {
+    background: #E5E9F2;
+}
+
+.goal_description {
+    flex: 4;
+}
+
+.goal_bucket {
+    flex: 3;
+}
+
+.goal_status {
+    flex: 1;
+}
+
+.goal_action {
+    flex: 3;
+}
+
+.goal_status_indicator {
+    width: 2rem;
+    height: 2rem; /*span inside span causes width and height not to behave as expected*/
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.goal_status_achieved {
+    background: #77D353;
+    border: 2px solid #439324;
+}
+
+.goal_status_pending {
+    background: #969FAA;
+    border: 2px solid #5A6978;
+}
