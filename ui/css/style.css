@@ -79,6 +79,11 @@ a:hover {
     display: flex;
 }
 
+#logged_in {
+    flex-direction: column;
+    display: flex;
+}
+
 #hero {
     background: #5A6978;
     flex:2;
@@ -105,6 +110,43 @@ a:hover {
     align-items: center;
     color: #FFF;
     height: 5rem;
+}
+
+#logged_in header {
+    color: #FFF;
+    height: 5rem;
+    background: #34567A;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+#logged_in ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex:1;
+}
+
+#logged_in ul li {
+    float: left;
+    padding: 0 1rem;
+}
+
+#logged_in ul li:nth-child(4) {
+    float: right;
+}
+
+#logged_in ul li:last-child {
+    float: right;
+}
+
+#logged_in ul li:nth-child(4) a {
+    color: #F95F62;
+}
+
+#logged_in ul li a {
+    color: #FFF;
 }
 
 #sign_up_header {
@@ -150,4 +192,77 @@ a:hover {
     color: #34567A;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.main_header {
+    height: 5rem;
+    border-bottom: 1px solid #CCC;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.main_header_create_button {
+    width:3rem;
+    text-align: center;
+    height:3rem;
+    border: 1px solid #CCC;
+    color: #CCC;
+    border-radius: 100%;
+    font-size: 2.6rem;
+    cursor: pointer; /*we shall remove this to activate the link*/
+}
+
+.main_header_name {
+    padding: 0 2rem;
+    color: #34567A;
+}
+
+.main_main {
+    padding: 2rem;
+    text-align: center;
+}
+
+.bucket {
+    text-decoration: none;
+    width: 28%;
+    display: inline-block;
+    margin:0px 1.25rem 2.5rem;
+}
+
+.bucket_thumb{
+    background: #E1E1E1;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bucket_buttons {
+    background: #EFEFEF;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bucket_thumb_button {
+    padding: 0.5rem 2rem;
+    color: #FFF;
+    margin:0 1rem;
+    cursor: pointer;
+}
+
+.bucket_thumb_button:hover {
+    color: #000;
+}
+
+.bucket_thumb_edit_button {
+    background: #FFBA5C;
+    border: 1px solid #F5732B;
+}
+
+.bucket_thumb_delete_button {
+    background: #F95F62;
+    border: 1px solid #AC1B1E;
 }
