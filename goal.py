@@ -1,0 +1,1 @@
+""" Module contains goal attributes and methods """
