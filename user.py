@@ -1,0 +1,1 @@
+""" Module contains user attributes and methods """
