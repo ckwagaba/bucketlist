@@ -1,0 +1,323 @@
+body {
+    font-family: "proxima-nova", Helvetica Neue, Verdana, Geneva, sans-serif;
+    margin: 0;
+    background: #FFF;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input{
+	-webkit-appearance:none;
+	font-family:inherit;
+}
+
+input[type="text"], input[type="password"] {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width:20rem;
+	border:1px solid #CCC;
+	background:#FFF;
+	padding:1rem;
+	vertical-align:middle;/*be mindful of object margins when using this rule*/
+	font-size:100%;
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	margin: 0.5rem 0;
+}
+
+input[type="button"], input[type="submit"], button {
+	display: inline-block;
+	text-decoration: none;
+	padding: 1rem 3rem;
+	margin: 1rem 0;
+	vertical-align:middle;
+	color: #FFF;
+	cursor: default;
+	border: 0;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	/**/
+}
+
+#sign_up_button_container input[type="submit"] {
+    background: #34567A;
+    border: 1px solid #34567A;
+}
+
+#sign_up_button_container input[type="submit"]:hover {
+    color: #34567A;
+    background: none;
+}
+
+#sign_in_button_container input[type="submit"] {
+    background: #F95F62;
+    border: 1px solid #F95F62;
+}
+
+#sign_in_button_container input[type="submit"]:hover {
+    color: #F95F62;
+    background: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#not_logged_in {
+    height: 100vh;
+    display: flex;
+}
+
+#logged_in {
+    flex-direction: column;
+    display: flex;
+}
+
+#hero {
+    background: #5A6978;
+    flex:2;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero_title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#right {
+    flex:1;
+}
+
+#right header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    height: 5rem;
+}
+
+#logged_in header {
+    color: #FFF;
+    height: 5rem;
+    background: #34567A;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+#logged_in ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex:1;
+}
+
+#logged_in ul li {
+    float: left;
+    padding: 0 1rem;
+}
+
+#logged_in ul li:nth-child(4) {
+    float: right;
+}
+
+#logged_in ul li:last-child {
+    float: right;
+}
+
+#logged_in ul li:nth-child(4) a {
+    color: #F95F62;
+}
+
+#logged_in ul li a {
+    color: #FFF;
+}
+
+#sign_up_header {
+    background: #34567A;
+}
+
+#sign_in_header {
+    background: #F95F62;
+}
+
+#right main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 5rem);
+}
+
+#sign_up_button_container, #sign_in_button_container {
+    text-align: center;
+}
+
+#option {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#sign_in_option, #sign_up_option {
+    margin: 2rem 0;
+}
+
+#sign_in_option a {
+    color: #F95F62;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#sign_in_option a:hover, #sign_up_option a:hover {
+    text-decoration: none;
+}
+
+#sign_up_option a {
+    color: #34567A;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.main_header {
+    height: 5rem;
+    border-bottom: 1px solid #CCC;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.main_header_create_button {
+    width:3rem;
+    text-align: center;
+    height:3rem;
+    border: 1px solid #CCC;
+    color: #CCC;
+    border-radius: 100%;
+    font-size: 2.6rem;
+    cursor: pointer; /*we shall remove this to activate the link*/
+}
+
+.main_header_name {
+    padding: 0 2rem;
+    color: #34567A;
+}
+
+.main_main {
+    padding: 2rem;
+    text-align: center;
+}
+
+.bucket {
+    text-decoration: none;
+    width: 28%;
+    display: inline-block;
+    margin:0px 1.25rem 2.5rem;
+}
+
+.bucket_thumb{
+    background: #E1E1E1;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bucket_buttons {
+    background: #EFEFEF;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bucket_thumb_button {
+    padding: 0.5rem 2rem;
+    color: #FFF;
+    margin:0 1rem;
+    cursor: pointer;
+}
+
+.bucket_thumb_button:hover {
+    color: #000;
+}
+
+.bucket_thumb_edit_button {
+    background: #FFBA5C;
+    border: 1px solid #F5732B;
+}
+
+.bucket_thumb_delete_button {
+    background: #F95F62;
+    border: 1px solid #AC1B1E;
+}
+
+#goal_list_header {
+    background: #969FAA;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+}
+
+.goal_container {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+}
+
+.goal_container:nth-child(odd) {
+    background: #F4F8FC;
+}
+
+.goal_container:nth-child(even) {
+    background: #E5E9F2;
+}
+
+.goal_description {
+    flex: 4;
+}
+
+.goal_bucket {
+    flex: 3;
+}
+
+.goal_status {
+    flex: 1;
+}
+
+.goal_action {
+    flex: 3;
+}
+
+.goal_status_indicator {
+    width: 2rem;
+    height: 2rem; /*span inside span causes width and height not to behave as expected*/
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.goal_status_achieved {
+    background: #77D353;
+    border: 2px solid #439324;
+}
+
+.goal_status_pending {
+    background: #969FAA;
+    border: 2px solid #5A6978;
+}
