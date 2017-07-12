@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<section id="not_logged_in">
+    <section id="hero">
+        <div id="hero_title">BUCKETLIST</div>
+        <div>Keep track of your dreams and goals.</div>
+    </section>
+    <section id="right">
+        <header id="sign_in_header">
+            Access your goals
+        </header>
+        <main>
+            <div id="form">
+                <form action="">
+                    <div><input type="text" name="user_email" placeholder="Email address" /></div>
+                    <div><input type="text" name="user_password" placeholder="Password" /></div>
+                    <div id="sign_in_button_container"><input type="submit" value="Sign in"/></div>
+                </form>
+            </div>
+            <div id="option">
+                <div>or</div>
+                <div id="sign_up_option"><a href="register">Sign up</a></div>
+            </div>
+        </main>
+    </section>
+</section>
+{% endblock %}
