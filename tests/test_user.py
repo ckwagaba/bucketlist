@@ -31,6 +31,15 @@ def test_create_bucket():
     
 def test_non_empty_bucket_name():
     assert user_bucket['name'] != None
+    
+def test_user_bucket_name():
+    assert user_bucket['name'] == 'Career'
+    
+def test_user_bucket_owner():
+    assert user_bucket['user'] == 'Colin'
+    
+def test_user_bucket_goals_description():
+    assert user_bucket['goals'][0]['description'] == 'Join Andela fellowship cohort II'
 
 def test_login():
     pass
