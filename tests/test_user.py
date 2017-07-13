@@ -12,18 +12,9 @@ from functionality.goals import *
 
 # creating instances with fake data
 new_user = User(fake_user['name'], fake_user['email'], fake_user['password'], fake_user['buckets'])
-#user_bucket = new_user.create_bucket(fake_user_buckets[0]['name'], fake_user_buckets[0]['goals'], fake_user_buckets[0]['progress'], fake_user_buckets[0]['user'])
     
 def test_create_user():
     assert new_user.create_user() == fake_user
-
-"""    
-def test_user_name():
-    assert new_user.user_name == 'Colin'
-    
-def test_non_empty_name_input():
-    assert new_user.user_name != None
-    """
 
 def test_create_bucket():
     new_bucket_goals = [{'description': 'Bungee jump', 'status': 0}]
