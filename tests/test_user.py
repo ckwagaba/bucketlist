@@ -29,6 +29,9 @@ def test_non_empty_name_input():
 def test_create_bucket():
     assert user_bucket == fake_user_buckets[0]
     
+def test_delete_bucket():
+    pass
+    
 def test_non_empty_bucket_name():
     assert user_bucket['name'] != None
     
@@ -40,9 +43,6 @@ def test_user_bucket_owner():
     
 def test_user_bucket_goals_description():
     assert user_bucket['goals'][0]['description'] == 'Join Andela fellowship cohort II'
-
-def test_user_view_buckets():
-    pass
 
 def test_login():
     pass
