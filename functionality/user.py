@@ -1,22 +1,20 @@
-""" Module contains user attributes and methods """
+""" user module """
+
+# some fake data
+fake_user = {'name': 'Colin', 'email': 'ckwagaba@gmail.com', 'password': 'pwd'}
+fake_user_buckets = [
+    {'name': 'Career', 'goals':[{'description': 'Join Andela fellowship cohort II', 'status': 1}], 'progress': 100, 'user': fake_user['name']},
+    {'name': 'Lifestyle', 'goals':[{'description': 'Buy a Tesla', 'status': 0}], 'progress': 0, 'user': fake_user['name']}
+]
 
 class User(object):
-    
-    # values initialized when the object is instantiated
     def __init__(self, user_name, user_email, user_password):
         self.user_name = user_name
         self.user_email = user_email
         self.user_password = user_password
         
     def create_user(self):
-        # validate data and create user
+        return {'name': self.user_name, 'email': self.user_email, 'password': self.user_password}
         
-    def login_user(self, email, password):
-        # check provided credentials against stored values
-        if email == self.user_name and password == self.user_password:
-            # create session and login user
-        else:
-            # prompt user to make another login attempt
-        
-    def logout_user(self):
-        # unset user's session and redirect to login page
+    def create_bucket(self, bucket_name, bucket_goals, bucket_progress, bucket_user):
+        return {'name': bucket_name, 'goals': bucket_goals, 'progress': bucket_progress, 'user': bucket_user}
