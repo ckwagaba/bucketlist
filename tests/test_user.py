@@ -11,38 +11,46 @@ from functionality.goals import *
 """ The different test cases """
 
 # creating instances with fake data
-new_user = User(fake_user['name'], fake_user['email'], fake_user['password'])
-user_bucket = new_user.create_bucket(fake_user_buckets[0]['name'], fake_user_buckets[0]['goals'], fake_user_buckets[0]['progress'], fake_user_buckets[0]['user'])
-
-def test_new_user_creation():
-    assert isinstance(new_user, User)
+new_user = User(fake_user['name'], fake_user['email'], fake_user['password'], fake_user['buckets'])
+#user_bucket = new_user.create_bucket(fake_user_buckets[0]['name'], fake_user_buckets[0]['goals'], fake_user_buckets[0]['progress'], fake_user_buckets[0]['user'])
     
-def test_return_of_user_object():
+def test_create_user():
     assert new_user.create_user() == fake_user
-    
+
+"""    
 def test_user_name():
     assert new_user.user_name == 'Colin'
     
 def test_non_empty_name_input():
     assert new_user.user_name != None
+    """
 
 def test_create_bucket():
-    assert user_bucket == fake_user_buckets[0]
+    new_bucket_goals = [{'description': 'Bungee jump', 'status': 0}]
+    new_bucket = {'name': 'Fun', 'goals': new_bucket_goals, 'progress': 0}
+    new_user.create_bucket(new_bucket)
+    assert len(new_user.user_buckets) == 3
     
 def test_delete_bucket():
-    pass
+    bucket_to_delete = 'Career'
+    new_user.delete_bucket(bucket_to_delete)
+    assert len(new_user.user_buckets) == 2
     
 def test_non_empty_bucket_name():
-    assert user_bucket['name'] != None
+    pass
+    #assert user_bucket['name'] != None
     
 def test_user_bucket_name():
-    assert user_bucket['name'] == 'Career'
+    pass
+    #assert user_bucket['name'] == 'Career'
     
 def test_user_bucket_owner():
-    assert user_bucket['user'] == 'Colin'
+    pass
+    #assert user_bucket['user'] == 'Colin'
     
 def test_user_bucket_goals_description():
-    assert user_bucket['goals'][0]['description'] == 'Join Andela fellowship cohort II'
+    pass
+    #assert user_bucket['goals'][0]['description'] == 'Join Andela fellowship cohort II'
 
 def test_login():
     pass
