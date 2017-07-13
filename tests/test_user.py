@@ -27,8 +27,17 @@ def test_delete_bucket():
     new_user.delete_bucket(bucket_to_delete)
     assert len(new_user.user_buckets) == 2
 
-def test_login():
-    pass
+def test_successful_login():
+    email = new_user.user_email
+    password = new_user.user_password
+    login_attempt = new_user.login(email, password)
+    assert login_attempt == 1
+    
+def test_unsuccessful_login():
+    email = 'wrong_email'
+    password = 'wrong_password'
+    login_attempt = new_user.login(email, password)
+    assert login_attempt == 0
 
 def test_logout():
     pass
