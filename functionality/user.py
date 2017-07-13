@@ -28,3 +28,14 @@ class User(object):
                 break
             else:
                 counter += 1
+                
+    def login(self, email, password):
+        if email == self.user_email and password == self.user_password:
+            return 1
+        else:
+            return 0
+    
+    def logout(self):
+        self.user_name = None
+        self.user_email = None
+        self.user_password = None
