@@ -7,7 +7,7 @@ from functionality.user import *
 from functionality.buckets import *
 from functionality.goals import *
 
-new_goal = Goal(fake_goal['description'], fake_goal['status'])
+new_goal = Goal(fake_goal['description'], fake_goal['bucket'], fake_goal['status'])
 
 """ The different test cases """
 

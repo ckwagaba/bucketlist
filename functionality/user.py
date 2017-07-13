@@ -2,8 +2,8 @@
 
 # some fake data
 fake_user_buckets = [
-    {'name': 'Career', 'goals':[{'description': 'Join Andela fellowship cohort II', 'status': 1}], 'progress': 100, 'user': 'Colin'},
-    {'name': 'Lifestyle', 'goals':[{'description': 'Buy a Tesla', 'status': 0}], 'progress': 0, 'user': 'Colin'}
+    {'name': 'Career', 'goals':[{'description': 'Join Andela fellowship cohort II', 'bucket': 'Career', 'status': 1}], 'owner': 'Colin', 'progress': 100},
+    {'name': 'Lifestyle', 'goals':[{'description': 'Buy a Tesla', 'bucket': 'Lifestyle', 'status': 0}], 'owner': 'Colin', 'progress': 0}
 ]
 fake_user = {'name': 'Colin', 'email': 'ckwagaba@gmail.com', 'password': 'pwd', 'buckets': fake_user_buckets}
 

@@ -17,8 +17,8 @@ def test_create_user():
     assert new_user.create_user() == fake_user
 
 def test_create_bucket():
-    new_bucket_goals = [{'description': 'Bungee jump', 'status': 0}]
-    new_bucket = {'name': 'Fun', 'goals': new_bucket_goals, 'progress': 0}
+    new_bucket_goals = [{'description': 'Bungee jump', 'bucket': 'Fun', 'status': 0}]
+    new_bucket = {'name': 'Fun', 'goals': new_bucket_goals, 'owner': new_user.user_name, 'progress': 0}
     new_user.create_bucket(new_bucket)
     assert len(new_user.user_buckets) == 3
     
@@ -26,22 +26,6 @@ def test_delete_bucket():
     bucket_to_delete = 'Career'
     new_user.delete_bucket(bucket_to_delete)
     assert len(new_user.user_buckets) == 2
-    
-def test_non_empty_bucket_name():
-    pass
-    #assert user_bucket['name'] != None
-    
-def test_user_bucket_name():
-    pass
-    #assert user_bucket['name'] == 'Career'
-    
-def test_user_bucket_owner():
-    pass
-    #assert user_bucket['user'] == 'Colin'
-    
-def test_user_bucket_goals_description():
-    pass
-    #assert user_bucket['goals'][0]['description'] == 'Join Andela fellowship cohort II'
 
 def test_login():
     pass
