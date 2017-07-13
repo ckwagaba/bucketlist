@@ -35,3 +35,6 @@ def test_update_bucket_name():
     new_name = 'Tech'
     bucket_name = new_bucket.update_name(new_name)
     assert new_bucket.bucket_name == new_name
+    
+def test_user_bucket_owner():
+    pass
