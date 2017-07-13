@@ -4,7 +4,8 @@ from flask import render_template
 
 from app import app
 
-# landing page - which happens to also be the registration page
+""" landing page - which happens to also be the registration page """
+
 @app.route('/')
 def index():
     return render_template("index.html")
