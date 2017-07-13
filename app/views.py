@@ -1,8 +1,10 @@
-# views.py
+# import required modules
 
 from flask import render_template
-
 from app import app
+from functionality.user import *
+from functionality.buckets import *
+from functionality.goals import *
 
 """ landing page - which happens to also be the registration page """
 
