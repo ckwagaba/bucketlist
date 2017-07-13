@@ -17,8 +17,8 @@ def test_create_user():
     assert new_user.create_user() == fake_user
 
 def test_create_bucket():
-    new_bucket_goals = [{'description': 'Bungee jump', 'status': 0, 'bucket': 'Fun'}]
-    new_bucket = {'name': 'Fun', 'goals': new_bucket_goals, 'progress': 0, 'owner': 'Colin'}
+    new_bucket_goals = [{'description': 'Bungee jump', 'bucket': 'Fun', 'status': 0}]
+    new_bucket = {'name': 'Fun', 'goals': new_bucket_goals, 'owner': new_user.user_name, 'progress': 0}
     new_user.create_bucket(new_bucket)
     assert len(new_user.user_buckets) == 3
     

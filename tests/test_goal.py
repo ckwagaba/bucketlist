@@ -7,7 +7,7 @@ from functionality.user import *
 from functionality.buckets import *
 from functionality.goals import *
 
-new_goal = Goal(fake_goal['description'], fake_goal['status'])
+new_goal = Goal(fake_goal['description'], fake_goal['bucket'], fake_goal['status'])
 
 """ The different test cases """
 
@@ -24,3 +24,6 @@ def test_update_goal_status():
     new_status = 2
     new_goal.update_status(new_status)
     assert new_goal.goal_status == new_status
+    
+def test_goal_bucket():
+    pass
