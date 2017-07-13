@@ -24,6 +24,3 @@ def test_update_goal_status():
     new_status = 2
     new_goal.update_status(new_status)
     assert new_goal.goal_status == new_status
-    
-def test_goal_bucket():
-    pass
