@@ -11,41 +11,34 @@ from functionality.goals import *
 """ The different test cases """
 
 # creating instances with fake data
-new_user = User(fake_user['name'], fake_user['email'], fake_user['password'])
-user_bucket = new_user.create_bucket(fake_user_buckets[0]['name'], fake_user_buckets[0]['goals'], fake_user_buckets[0]['progress'], fake_user_buckets[0]['user'])
-
-def test_new_user_creation():
-    assert isinstance(new_user, User)
+new_user = User(fake_user['name'], fake_user['email'], fake_user['password'], fake_user['buckets'])
     
-def test_return_of_user_object():
+def test_create_user():
     assert new_user.create_user() == fake_user
-    
-def test_user_name():
-    assert new_user.user_name == 'Colin'
-    
-def test_non_empty_name_input():
-    assert new_user.user_name != None
 
 def test_create_bucket():
-    assert user_bucket == fake_user_buckets[0]
+    new_bucket_goals = [{'description': 'Bungee jump', 'bucket': 'Fun', 'status': 0}]
+    new_bucket = {'name': 'Fun', 'goals': new_bucket_goals, 'owner': new_user.user_name, 'progress': 0}
+    new_user.create_bucket(new_bucket)
+    assert len(new_user.user_buckets) == 3
     
 def test_delete_bucket():
-    pass
-    
-def test_non_empty_bucket_name():
-    assert user_bucket['name'] != None
-    
-def test_user_bucket_name():
-    assert user_bucket['name'] == 'Career'
-    
-def test_user_bucket_owner():
-    assert user_bucket['user'] == 'Colin'
-    
-def test_user_bucket_goals_description():
-    assert user_bucket['goals'][0]['description'] == 'Join Andela fellowship cohort II'
+    bucket_to_delete = 'Career'
+    new_user.delete_bucket(bucket_to_delete)
+    assert len(new_user.user_buckets) == 2
 
-def test_login():
-    pass
+def test_successful_login():
+    email = new_user.user_email
+    password = new_user.user_password
+    session_token = new_user.login(email, password)
+    assert session_token == 1
+    
+def test_unsuccessful_login():
+    email = 'wrong_email'
+    password = 'wrong_password'
+    session_token = new_user.login(email, password)
+    assert session_token == 0
 
-def test_logout():
-    pass
+def test_successful_logout():
+    session_token = new_user.logout()
+    assert session_token == 0
