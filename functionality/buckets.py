@@ -23,11 +23,10 @@ class Bucket(object):
         self.bucket_goals.append(new_goal)
         
     def delete_goal(self, goal_to_delete):
+        counter = 0
         for i in self.bucket_goals:
             if i['description'] == goal_to_delete:
-                self.bucket_goals.pop(i)
+                self.bucket_goals.pop(counter)
                 break
             else:
-                return 'There is no goal with that description'
-    
-    
+                counter += 1
