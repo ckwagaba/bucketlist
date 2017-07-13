@@ -34,3 +34,8 @@ class User(object):
             return 1
         else:
             return 0
+    
+    def logout(self):
+        self.user_name = None
+        self.user_email = None
+        self.user_password = None

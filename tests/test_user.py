@@ -39,5 +39,8 @@ def test_unsuccessful_login():
     login_attempt = new_user.login(email, password)
     assert login_attempt == 0
 
-def test_logout():
-    pass
+def test_successful_logout():
+    new_user.logout()
+    assert new_user.user_name == None
+    assert new_user.user_email == None
+    assert new_user.user_password == None
