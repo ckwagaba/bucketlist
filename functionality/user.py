@@ -1,6 +1,6 @@
 """ user module """
 
-# some fake data for testing purposes
+# some fake data
 fake_user_buckets = [
     {'name': 'Career', 'goals':[{'description': 'Join Andela fellowship cohort II', 'bucket': 'Career', 'status': 1}], 'owner': 'Colin', 'progress': 100},
     {'name': 'Lifestyle', 'goals':[{'description': 'Buy a Tesla', 'bucket': 'Lifestyle', 'status': 0}], 'owner': 'Colin', 'progress': 0}
