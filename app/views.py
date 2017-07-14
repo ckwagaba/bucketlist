@@ -111,7 +111,6 @@ def create_bucket_list():
 @app.route('/goals')
 def view_goals():
     global this_user
-    this_user
     return render_template("goals.html")
     
 @app.route('/create_goal')
