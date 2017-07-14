@@ -70,12 +70,20 @@ def login():
     
 """ we handle bucket operations """
     
-@app.route('/buckets/<user_name>')
-def view_buckets(user_name):
+@app.route('/buckets')
+def view_buckets():
     return render_template("buckets.html")
+    
+@app.route('/create_bucket')
+def create_bucket_page():
+    return render_template("create_bucket.html")
     
 """ we handle goal operations """
     
 @app.route('/goals')
 def view_goals():
     return render_template("goals.html")
+    
+@app.route('/create_goal')
+def create_goals():
+    return render_template("create_goal.html")
