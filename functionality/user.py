@@ -1,6 +1,6 @@
 """ user module """
 
-# some fake data
+# some fake data for testing purposes
 fake_user_buckets = [
     {'name': 'Career', 'goals':[{'description': 'Join Andela fellowship cohort II', 'bucket': 'Career', 'status': 1}], 'owner': 'Colin', 'progress': 100},
     {'name': 'Lifestyle', 'goals':[{'description': 'Buy a Tesla', 'bucket': 'Lifestyle', 'status': 0}], 'owner': 'Colin', 'progress': 0}
@@ -13,9 +13,6 @@ class User(object):
         self.user_email = user_email
         self.user_password = user_password
         self.user_buckets = user_buckets
-        
-    def create_user(self):
-        return {'name': self.user_name, 'email': self.user_email, 'password': self.user_password, 'buckets': self.user_buckets}
         
     def create_bucket(self, new_bucket):
         self.user_buckets.append(new_bucket)
