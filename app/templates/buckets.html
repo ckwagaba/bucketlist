@@ -16,53 +16,19 @@
         </section>
         <section class="main_main">
             
-            <div class="bucket">
-                <a href="/goals"><div class="bucket_thumb">Career</div></a>
-                <div class="bucket_buttons">
-                    <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
-                    <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
-                </div>
-            </div>
-            
-            <div class="bucket">
-                <div class="bucket_thumb">Lifestyle</div>
-                <div class="bucket_buttons">
-                    <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
-                    <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
-                </div>
-            </div>
-            
-            <div class="bucket">
-                <div class="bucket_thumb">Family</div>
-                <div class="bucket_buttons">
-                    <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
-                    <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
-                </div>
-            </div>
-            
-            <div class="bucket">
-                <div class="bucket_thumb">Bucket_Name</div>
-                <div class="bucket_buttons">
-                    <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
-                    <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
-                </div>
-            </div>
-            
-            <div class="bucket">
-                <div class="bucket_thumb">Bucket_Name</div>
-                <div class="bucket_buttons">
-                    <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
-                    <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
-                </div>
-            </div>
-            
-            <div class="bucket">
-                <div class="bucket_thumb">Bucket_Name</div>
-                <div class="bucket_buttons">
-                    <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
-                    <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
-                </div>
-            </div>
+            {% if not user_buckets %}
+                <div>No bucket lists. Let's create one!</div>
+                {% else %}
+                    {% for i in user_buckets %}
+                        <div class="bucket">
+                            <a href="/goals"><div class="bucket_thumb">{{i}}</div></a>
+                            <div class="bucket_buttons">
+                                <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
+                                <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+            {% endif %}
             
         </section>
     </main>

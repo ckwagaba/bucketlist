@@ -83,7 +83,8 @@ def logout():
 def view_buckets():
     global this_user
     this_user_name = this_user.user_name
-    return render_template("buckets.html", user_name = this_user_name)
+    this_user_buckets = this_user.user_buckets
+    return render_template("buckets.html", user_name = this_user_name, user_buckets = this_user_buckets)
     
 
     
@@ -91,10 +92,26 @@ def view_buckets():
 def create_bucket_page():
     return render_template("create_bucket.html")
     
+@app.route('/create_bucket', methods = ['POST', 'GET'])
+def create_bucket_list():
+    global this_user
+    if request.method == 'POST': # proper form submission
+        # get values from request
+        bucket_name = request.form['bucket_name']
+        this_user.create_bucket(bucket_name)
+        return redirect('/buckets')
+    else: # hot urls
+        # get values from request
+        bucket_name = request.args.get('bucket_name')
+        this_user.create_bucket(bucket_name)
+        return redirect('/buckets')
+    
 """ we handle goal operations """
     
 @app.route('/goals')
 def view_goals():
+    global this_user
+    this_user
     return render_template("goals.html")
     
 @app.route('/create_goal')
