@@ -30,7 +30,9 @@ def create_user():
         password = request.form['user_password']
         # create user with values
         this_user = User(name, email, password, [])
-        return this_user
+        this_user_name = this_user.user_name
+        return redirect('/signin')
+        #return redirect(url_for('view_buckets', user_name = this_user_name))
     else: # hot urls
         
         name = request.form['user_name']
@@ -38,7 +40,9 @@ def create_user():
         password = request.form['user_password']
         
         this_user = User(name, email, password, [])
-        return this_user
+        this_user_name = this_user.user_name
+        return redirect('/signin')
+        #return redirect(url_for('view_buckets', user_name = this_user_name))
     
 """ we handle user login and logout """
 
@@ -46,10 +50,28 @@ def create_user():
 def signin_page():
     return render_template("sign_in.html")
     
+@app.route('/signin', methods = ['POST', 'GET'])
+def login():
+    if request.method == 'POST': # proper form submission
+        # get values from request
+        email = request.form['user_email']
+        password = request.form['user_password']
+        # sign in user with values
+        this_user.login(email, password)
+        this_user_name = this_user.user_name
+        return redirect(url_for('view_buckets', user_name = this_user_name))
+    else: # hot urls
+        email = request.form['user_email']
+        password = request.form['user_password']
+        
+        this_user.login(email, password)
+        this_user_name = this_user.user_name
+        return redirect(url_for('view_buckets', user_name = this_user_name))
+    
 """ we handle bucket operations """
     
-@app.route('/buckets')
-def view_buckets():
+@app.route('/buckets/<user_name>')
+def view_buckets(user_name):
     return render_template("buckets.html")
     
 """ we handle goal operations """
