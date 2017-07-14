@@ -14,6 +14,9 @@ class User(object):
         self.user_password = user_password
         self.user_buckets = user_buckets
         
+    def create_user(self):
+        return {'name': self.user_name, 'email': self.user_email, 'password': self.user_password, 'buckets': self.user_buckets}
+        
     def create_bucket(self, new_bucket):
         self.user_buckets.append(new_bucket)
         
