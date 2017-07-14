@@ -8,6 +8,7 @@ from functionality.goals import *
 
 # making the user object available to all
 this_user = None
+this_bucket = None
 
 """ landing page - which happens to also be the registration page """
 
@@ -110,9 +111,12 @@ def create_bucket_list():
     
 @app.route('/goals')
 def view_goals():
-    global this_user
     return render_template("goals.html")
     
 @app.route('/create_goal')
-def create_goals():
+def create_goals_page():
     return render_template("create_goal.html")
+    
+@app.route('/create_goal', methods = ['POST', 'GET'])
+def create_goals():
+    return 'Still to handle this and more. But the functionality and tests for it exist. Thanks.'
