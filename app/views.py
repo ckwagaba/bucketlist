@@ -59,8 +59,7 @@ def login():
         # Authenticate user
         login_token = this_user.login(email, password)
         if login_token == 1: # successful login
-            this_user_name = this_user.user_name
-            return redirect(url_for('view_buckets', user_name = this_user_name))
+            return redirect('/buckets')
         else: # unsuccessful login
             return redirect('/signin')
     else: # hot urls
@@ -70,8 +69,7 @@ def login():
         # Authenticate user
         login_token = this_user.login(email, password)
         if login_token == 1: # successful login
-            this_user_name = this_user.user_name
-            return redirect(url_for('view_buckets', user_name = this_user_name))
+            return redirect('/buckets')
         else: # unsuccessful login
             return redirect('/signin')
         
@@ -83,7 +81,11 @@ def logout():
     
 @app.route('/buckets')
 def view_buckets():
-    return render_template("buckets.html")
+    global this_user
+    this_user_name = this_user.user_name
+    return render_template("buckets.html", user_name = this_user_name)
+    
+
     
 @app.route('/create_bucket')
 def create_bucket_page():
