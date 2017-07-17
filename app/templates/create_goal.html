@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+<section id="logged_in">
+    <header class="logged_in_header">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/buckets">Buckets</a></li>
+            <li><a href="/goals">Goals</a></li>
+            <!--<li><a href="#">Achievements</a></li>-->
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="#">{{name}}</a></li>
+        </ul>
+    </header>
+    <main>
+        <section class="main_header">
+            <span class="main_header_name">Click button to add goal to bucket</span>
+        </section>
+        <section class="main_main">
+            <div id="form">
+                <form action="/save_goal" method="post" name="create_bucket">
+                    <div><input type="text" name="user_email" placeholder="Goal Name" /></div>
+                    <div id="sign_in_button_container"><input type="submit" value="Create"/></div>
+                </form>
+            </div>
+        </section>
+    </main>
+</section>
+{% endblock %}
