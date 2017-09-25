@@ -7,8 +7,7 @@ from functionality.buckets import *
 from functionality.goals import *
 
 # making the user object available to all
-this_user = None
-this_bucket = None
+all_users = []
 
 """ landing page - which happens to also be the registration page """
 
@@ -24,7 +23,7 @@ def signup_page():
     
 @app.route('/register', methods = ['POST', 'GET'])
 def create_user():
-    global this_user # global user object to store credentials
+    global all_users # global user object to store credentials
     if request.method == 'POST': # proper form submission
         # get values from request
         name = request.form['user_name']
@@ -34,15 +33,8 @@ def create_user():
         this_user = User(name, email, password, [])
         # then redirect to sign in
         return redirect('/signin')
-    else: # hot urls
-        # get values from request
-        name = request.args.get('user_name')
-        email = request.args.get('user_email')
-        password = request.args.get('user_password')
-        # update global user object with values
-        this_user = User(name, email, password, [])
-        # then redirect to sign in
-        return redirect('/signin')
+    else: # show registration form
+        return redirect('/register')
     
 """ we handle user login and logout """
 
@@ -52,7 +44,7 @@ def signin_page():
     
 @app.route('/signin', methods = ['POST', 'GET'])
 def login():
-    global this_user
+    global all_users
     if request.method == 'POST': # proper form submission
         # get values from request
         email = request.form['user_email']
@@ -63,16 +55,8 @@ def login():
             return redirect('/buckets')
         else: # unsuccessful login
             return redirect('/signin')
-    else: # hot urls
-        # get values from request
-        email = request.args.get('user_email')
-        password = request.args.get('user_password')
-        # Authenticate user
-        login_token = this_user.login(email, password)
-        if login_token == 1: # successful login
-            return redirect('/buckets')
-        else: # unsuccessful login
-            return redirect('/signin')
+    else: # show login form
+        return redirect('/signin')
         
 @app.route('/logout')
 def logout():
@@ -82,7 +66,7 @@ def logout():
     
 @app.route('/buckets')
 def view_buckets():
-    global this_user
+    global all_users
     this_user_name = this_user.user_name
     this_user_buckets = this_user.user_buckets
     return render_template("buckets.html", user_name = this_user_name, user_buckets = this_user_buckets)
@@ -95,17 +79,14 @@ def create_bucket_page():
     
 @app.route('/create_bucket', methods = ['POST', 'GET'])
 def create_bucket_list():
-    global this_user
+    global all_users
     if request.method == 'POST': # proper form submission
         # get values from request
         bucket_name = request.form['bucket_name']
         this_user.create_bucket(bucket_name)
         return redirect('/buckets')
-    else: # hot urls
-        # get values from request
-        bucket_name = request.args.get('bucket_name')
-        this_user.create_bucket(bucket_name)
-        return redirect('/buckets')
+    else: # show create bucket form
+        return redirect('/create_bucket')
     
 """ we handle goal operations """
     
