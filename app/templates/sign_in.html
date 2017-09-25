@@ -3,6 +3,11 @@
 <section id="not_logged_in">
     <section id="hero">
         <div id="hero_title">BUCKETLIST</div>
+        <div>
+            {% for i in all_users %}
+            {{i}}
+            {% endfor %}
+        </div>
         <div>Keep track of your dreams and goals.</div>
     </section>
     <section id="right">
