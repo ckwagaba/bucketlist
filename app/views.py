@@ -13,13 +13,13 @@ all_users = []
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template("sign_in.html")
 
 """ we handle user registration """
 
 @app.route('/register')
 def signup_page():
-    return render_template("index.html")
+    return render_template("register.html")
     
 @app.route('/register', methods = ['POST', 'GET'])
 def create_user():
