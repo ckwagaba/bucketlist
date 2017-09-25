@@ -209,7 +209,7 @@ a:hover {
     border: 1px solid #CCC;
     color: #CCC;
     border-radius: 100%;
-    font-size: 2.6rem;
+    font-size: 2.3rem;
     cursor: pointer; /*we shall remove this to activate the link*/
 }
 

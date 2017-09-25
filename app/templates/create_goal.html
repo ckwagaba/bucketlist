@@ -6,9 +6,9 @@
             <li><a href="/">Home</a></li>
             <li><a href="/buckets">Buckets</a></li>
             <li><a href="/goals">Goals</a></li>
-            <!--<li><a href="#">Achievements</a></li>-->
             <li><a href="/logout">Logout</a></li>
-            <li><a href="#">{{name}}</a></li>
+            <li><a href="#">Achievements</a></li>
+            <li><a href="#">{{user_name}}</a></li>
         </ul>
     </header>
     <main>
@@ -17,7 +17,7 @@
         </section>
         <section class="main_main">
             <div id="form">
-                <form action="/create_goal" method="post" name="create_bucket">
+                <form action="/create_goal" method="post" name="create_goal">
                     <div><input type="text" name="user_goal" placeholder="Goal Description" /></div>
                     <div id="sign_in_button_container"><input type="submit" value="Create"/></div>
                 </form>
