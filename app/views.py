@@ -30,9 +30,11 @@ def create_user():
         email = request.form['user_email']
         password = request.form['user_password']
         # update global user object with values
-        this_user = User(name, email, password, [])
+        new_user = User(name, email, password, [])
+        this_user = new_user.create_user()
+        all_users.append(this_user)
         # then redirect to sign in
-        return redirect('/signin')
+        return render_template("sign_in.html", all_users = all_users)
     else: # show registration form
         return redirect('/register')
     
