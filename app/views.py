@@ -53,8 +53,6 @@ def login():
         for user in all_users:
             if user['email'] == email and user['password'] == password:
                 return 'Welcome %s' % user['name']
-            else:
-                continue # check another entry for a possible match
         error = 'Verify your credentials and try again'
         return render_template("sign_in.html", error = error)
     else: # show login form
