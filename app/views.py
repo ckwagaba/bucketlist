@@ -14,6 +14,10 @@ app.secret_key = 'DqvjteLU#m@k2S'
 
 """ landing page - which happens to also be the sign in page """
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect("/")
+
 @app.route('/')
 def index():
     if 'user' in session:
