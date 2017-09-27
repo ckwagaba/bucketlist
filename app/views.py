@@ -16,13 +16,19 @@ app.secret_key = 'DqvjteLU#m@k2S'
 
 @app.route('/')
 def index():
-    return render_template("sign_in.html")
+    if 'user' in session:
+        return render_template("buckets.html", user = session['user'])
+    else:
+        return render_template("sign_in.html")
 
 """ we handle user registration """
 
 @app.route('/register')
 def signup_page():
-    return render_template("register.html")
+    if 'user' in session:
+        return render_template("buckets.html", user = session['user'])
+    else:
+        return render_template("register.html")
     
 @app.route('/register', methods = ['POST', 'GET'])
 def create_user():
@@ -49,7 +55,10 @@ def create_user():
 
 @app.route('/signin')
 def signin_page():
-    return render_template("sign_in.html")
+    if 'user' in session:
+        return render_template("buckets.html", user = session['user'])
+    else:
+        return render_template("sign_in.html")
     
 @app.route('/signin', methods = ['POST', 'GET'])
 def login():
@@ -60,8 +69,8 @@ def login():
         # Authenticate user
         for user in all_users:
             if user['email'] == email and user['password'] == password:
-                # set session variable using the unique email address
-                session['user_email'] = user['email']
+                # set session variable using the user object
+                session['user'] = user
                 return redirect('/buckets')
         error = 'Verify your credentials and try again'
         return render_template("sign_in.html", error = error)
@@ -71,26 +80,25 @@ def login():
 @app.route('/logout')
 def logout():
     # destroy this user's session
-    session.pop('user_email', None)
+    session.pop('user', None)
     return redirect(url_for('index'))
     
 """ we handle bucket operations """
-    
+
 @app.route('/buckets')
 def view_buckets():
     # protect route from unauthorized users
-    if 'user_email' in session:
-        # get user data
-        for user in all_users:
-            user_name = user['name']
-            user_buckets = user['buckets']
-            return render_template("buckets.html", user_name = user_name, user_buckets = user_buckets)
+    if 'user' in session:
+        return render_template("buckets.html", user = session['user'])
     else:
         return redirect(url_for('index'))
 
 @app.route('/create_bucket')
 def create_bucket_page():
-    return render_template("create_bucket.html")
+    if 'user' in session:
+        return render_template("create_bucket.html", user = session['user'])
+    else:
+        return redirect(url_for('index'))
     
 @app.route('/create_bucket', methods = ['POST', 'GET'])
 def create_bucket_list():
@@ -107,11 +115,17 @@ def create_bucket_list():
     
 @app.route('/goals')
 def view_goals():
-    return render_template("goals.html")
+    if 'user' in session:
+        return render_template("goals.html", user = session['user'])
+    else:
+        return redirect(url_for('index'))
     
 @app.route('/create_goal')
 def create_goals_page():
-    return render_template("create_goal.html")
+    if 'user' in session:
+        return render_template("create_goal.html", user = session['user'])
+    else:
+        return redirect(url_for('index'))
     
 @app.route('/create_goal', methods = ['POST', 'GET'])
 def create_goals():
