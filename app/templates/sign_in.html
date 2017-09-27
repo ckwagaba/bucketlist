@@ -3,11 +3,6 @@
 <section id="not_logged_in">
     <section id="hero">
         <div id="hero_title">BUCKETLIST</div>
-        <div>
-            {% for i in all_users %}
-            {{i}}
-            {% endfor %}
-        </div>
         <div>Keep track of your dreams and goals.</div>
     </section>
     <section id="right">
@@ -20,6 +15,11 @@
                     <div><input type="text" name="user_email" placeholder="Email address" /></div>
                     <div><input type="password" name="user_password" placeholder="Password" /></div>
                     <div id="sign_in_button_container"><input type="submit" value="Sign in"/></div>
+                    <div>
+                        {% if error %}
+                        {{error}}
+                        {% endif %}
+                    </div>
                 </form>
             </div>
             <div id="option">

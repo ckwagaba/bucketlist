@@ -6,7 +6,7 @@ from functionality.user import *
 from functionality.buckets import *
 from functionality.goals import *
 
-# making the user object available to all
+# global var. reset when server is restarted
 all_users = []
 
 """ landing page - which happens to also be the registration page """
@@ -23,7 +23,6 @@ def signup_page():
     
 @app.route('/register', methods = ['POST', 'GET'])
 def create_user():
-    global all_users # global user object to store credentials
     if request.method == 'POST': # proper form submission
         # get values from request
         name = request.form['user_name']
@@ -34,7 +33,7 @@ def create_user():
         this_user = new_user.create_user()
         all_users.append(this_user)
         # then redirect to sign in
-        return render_template("sign_in.html", all_users = all_users)
+        return redirect('/signin')
     else: # show registration form
         return redirect('/register')
     
@@ -46,17 +45,18 @@ def signin_page():
     
 @app.route('/signin', methods = ['POST', 'GET'])
 def login():
-    global all_users
     if request.method == 'POST': # proper form submission
         # get values from request
         email = request.form['user_email']
         password = request.form['user_password']
         # Authenticate user
-        login_token = this_user.login(email, password)
-        if login_token == 1: # successful login
-            return redirect('/buckets')
-        else: # unsuccessful login
-            return redirect('/signin')
+        for user in all_users:
+            if user['email'] == email and user['password'] == password:
+                return 'Welcome %s' % user['name']
+            else:
+                continue # check another entry for a possible match
+        error = 'Verify your credentials and try again'
+        return render_template("sign_in.html", error = error)
     else: # show login form
         return redirect('/signin')
         
