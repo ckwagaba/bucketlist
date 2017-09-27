@@ -9,7 +9,10 @@ from functionality.goals import *
 # global var. reset when server is restarted
 all_users = []
 
-""" landing page - which happens to also be the registration page """
+# set the secret key.  for sessions:
+app.secret_key = 'DqvjteLU#m@k2S'
+
+""" landing page - which happens to also be the sign in page """
 
 @app.route('/')
 def index():
@@ -52,7 +55,9 @@ def login():
         # Authenticate user
         for user in all_users:
             if user['email'] == email and user['password'] == password:
-                return 'Welcome %s' % user['name']
+                # set session variable using the unique email address
+                session['user_email'] = user['email']
+                return redirect('/buckets')
         error = 'Verify your credentials and try again'
         return render_template("sign_in.html", error = error)
     else: # show login form
@@ -60,16 +65,26 @@ def login():
         
 @app.route('/logout')
 def logout():
-    return redirect('/signin')
+    # destroy this user's session
+    session.pop('user_email', None)
+    return redirect(url_for('index'))
     
 """ we handle bucket operations """
     
 @app.route('/buckets')
 def view_buckets():
-    global all_users
+    # protect route from unauthorized users
+    if 'user_email' in session:
+        return 'Logged in as %s' % session['user_email']
+    return redirect(url_for('index'))
+    """
+    for user in all_users:
+            if user['email'] == email and user['password'] == password:
+                # set session variable using the unique email address
+                session['user_email'] = user['email']
     this_user_name = this_user.user_name
     this_user_buckets = this_user.user_buckets
-    return render_template("buckets.html", user_name = this_user_name, user_buckets = this_user_buckets)
+    return render_template("buckets.html", user_name = this_user_name, user_buckets = this_user_buckets)"""
     
 
     
