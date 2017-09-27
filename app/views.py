@@ -31,12 +31,17 @@ def create_user():
         name = request.form['user_name']
         email = request.form['user_email']
         password = request.form['user_password']
-        # update global user object with values
-        new_user = User(name, email, password, [])
-        this_user = new_user.create_user()
-        all_users.append(this_user)
-        # then redirect to sign in
-        return redirect('/signin')
+        # we need to check if the user exists
+        for user in all_users:
+            if user['email'] == email:
+                error = 'User already exists'
+                return render_template("register.html", error = error)
+        else: # update global user object with values
+            new_user = User(name, email, password, [])
+            this_user = new_user.create_user()
+            all_users.append(this_user)
+            # then redirect to sign in
+            return redirect('/signin')
     else: # show registration form
         return redirect('/register')
     
@@ -75,19 +80,14 @@ def logout():
 def view_buckets():
     # protect route from unauthorized users
     if 'user_email' in session:
-        return 'Logged in as %s' % session['user_email']
-    return redirect(url_for('index'))
-    """
-    for user in all_users:
-            if user['email'] == email and user['password'] == password:
-                # set session variable using the unique email address
-                session['user_email'] = user['email']
-    this_user_name = this_user.user_name
-    this_user_buckets = this_user.user_buckets
-    return render_template("buckets.html", user_name = this_user_name, user_buckets = this_user_buckets)"""
-    
+        # get user data
+        for user in all_users:
+            user_name = user['name']
+            user_buckets = user['buckets']
+            return render_template("buckets.html", user_name = user_name, user_buckets = user_buckets)
+    else:
+        return redirect(url_for('index'))
 
-    
 @app.route('/create_bucket')
 def create_bucket_page():
     return render_template("create_bucket.html")
