@@ -17,12 +17,12 @@
         </section>
         <section class="main_main">
             
-            {% if not user_buckets %}
+            {% if user['buckets'] | length == 0  %}
                 <div>No bucket lists. Let's create one!</div>
                 {% else %}
-                    {% for i in user_buckets %}
+                    {% for i in user['buckets'] %}
                         <div class="bucket">
-                            <a href="/goals"><div class="bucket_thumb">{{i}}</div></a>
+                            <a href="/goals"><div class="bucket_thumb">{{i['name']}}</div></a>
                             <div class="bucket_buttons">
                                 <span class="bucket_thumb_button bucket_thumb_edit_button">Edit</span>
                                 <span class="bucket_thumb_button bucket_thumb_delete_button">Delete</span>

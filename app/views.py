@@ -106,12 +106,15 @@ def create_bucket_page():
     
 @app.route('/create_bucket', methods = ['POST', 'GET'])
 def create_bucket_list():
-    global all_users
     if request.method == 'POST': # proper form submission
         # get values from request
         bucket_name = request.form['bucket_name']
-        this_user.create_bucket(bucket_name)
-        return redirect('/buckets')
+        user = session['user']
+        new_bucket = Bucket(bucket_name, [], user['email'], 0)
+        this_bucket = new_bucket.create_bucket()
+        user['buckets'].append(this_bucket) # why does it replace content instead?
+        print user
+        return render_template("buckets.html", user = user)
     else: # show create bucket form
         return redirect('/create_bucket')
     

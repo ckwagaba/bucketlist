@@ -14,6 +14,9 @@ class Bucket(object):
         self.bucket_goals = bucket_goals
         self.bucket_owner = bucket_owner
         
+    def create_bucket(self):
+        return {'name': self.bucket_name, 'goals': self.bucket_goals, 'owner': self.bucket_owner, 'progress': self.bucket_progress}
+        
     def view_goals(self):
         return self.bucket_goals
         
